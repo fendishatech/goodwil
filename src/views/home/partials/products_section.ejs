@@ -1,3 +1,40 @@
-<section class="h-screen">
-  <h1>Products</h1>
+<section id="products" class="min-h-screen">
+  <h1 class="text-center text-gray-800 text-2xl font-semibold my-8">
+    Our Latest Products
+  </h1>
+  <div class="container mx-auto">
+    <div class="px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% for (let i = 0; i < products.length; i++) { %>
+      <div class="bg-white overflow-hidden shadow-md rounded-lg">
+        <img
+          src="<%= products[i].image %>"
+          alt="Product"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-4">
+          <h2 class="text-lgfont-bold mb-2">
+            <%#= products[i].name %>
+            <p class="text-gray-600 flex gap-3">
+              <svg
+                class="w-[20px] h-[20px]"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2c-4.97 0-9 4.03-9 9c0 6.75 9 13 9 13s9-6.25 9-13c0-4.97-4.03-9-9-9zm0 12.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              <%= products[i].location %>
+            </p>
+          </h2>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
 </section>

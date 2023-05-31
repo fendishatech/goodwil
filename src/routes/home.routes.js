@@ -4,7 +4,34 @@ const Product = require("../models/product.model");
 // GET /blog-posts
 router.get("/", async (req, res) => {
   try {
-    const products = await Product.findAll();
+    // const products = await Product.findAll();
+    const products = [
+      {
+        image: "/images/bole_bulbula_mariyam.jpg",
+
+        location: "Bole Bulbula, Mariyam Mazoriya",
+      },
+      {
+        image: "/images/bulgariya.jpg",
+
+        location: "Bulgariya",
+      },
+      {
+        image: "/images/egziabher_ab_megenagna.jpg",
+
+        location: "Megenagna, Egzihabher Ab",
+      },
+      {
+        image: "/images/gerji_mebrat_hayil.jpg",
+
+        location: "Gerji, Mebrat Hayil",
+      },
+      {
+        image: "/images/meskel_flower.jpg",
+
+        location: "Meskel Flower",
+      },
+    ];
     res.render("home/index", { products });
   } catch (error) {
     console.error(error);
