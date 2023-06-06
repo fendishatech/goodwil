@@ -1,16 +1,25 @@
 <header
-  class="w-full h-[64px] px-6 py-4 bg-transparent flex justify-between fixed"
+  id="header"
+  class="w-full h-[64px] px-6 z-10 py-4 flex justify-between fixed transition duration-300"
 >
   <!-- ========== Start Logo ========== -->
-  <h1 class="text-2xl font-semibold text-center">Goodwill Business Group</h1>
+  <h1 class="text-2xl font-semibold text-center">
+    <a href="/">Goodwill Business Group</a>
+  </h1>
   <!-- ========== End Logo ========== -->
   <!-- ========== Start Links ========== -->
   <nav>
     <ul class="hidden sm:flex sm:flex-row space-x-6">
-      <li><a href="#hero" class="hover:text-gray-400">Home</a></li>
-      <li><a href="#about_us" class="hover:text-gray-400">About</a></li>
-      <li><a href="#products" class="hover:text-gray-400">Products</a></li>
-      <li><a href="#contact" class="hover:text-gray-400">Contact</a></li>
+      <li><a href="#hero" class="hover:text-gray-300">Home</a></li>
+      <li>
+        <a href="#about_us" class="hover:text-gray-300">About</a>
+      </li>
+      <li>
+        <a href="#products" class="hover:text-gray-300">Products</a>
+      </li>
+      <li>
+        <a href="#contact" class="hover:text-gray-300">Contact</a>
+      </li>
     </ul>
   </nav>
   <!-- ========== End Links ========== -->
@@ -23,16 +32,12 @@
 
   window.addEventListener("scroll", () => {
     const currentScrollPos = window.pageYOffset;
-    if (
-      prevScrollPos > currentScrollPos &&
-      (prevScrollPos - currentScrollPos > scrollDistance ||
-        currentScrollPos < scrollDistance)
-    ) {
-      header.classList.remove("bg-transparent");
-      header.classList.add("bg-white", "hadow-md");
+    if (prevScrollPos > scrollDistance) {
+      header.classList.remove("bg-transparent", "text-slate-100");
+      header.classList.add("bg-white", "shadow-lg", "text-gray-900");
     } else {
-      header.classList.remove("bg-white", "hadow-md");
-      header.classList.add("bg-transparent");
+      header.classList.remove("bg-white", "shadow-lg", "text-gray-900");
+      header.classList.add("bg-transparent", "text-slate-100");
     }
     prevScrollPos = currentScrollPos;
   });
